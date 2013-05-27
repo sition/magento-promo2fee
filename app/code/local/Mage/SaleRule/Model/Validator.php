@@ -542,7 +542,11 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
                     if (!isset($cartRules[$rule->getId()])) {
                         $cartRules[$rule->getId()] = $rule->getDiscountAmount();
                     }
-                    if ($cartRules[$rule->getId()] > 0) {
+                    
+                    // sition! aanpassing voor negative discounts
+                    // was: if ($cartRules[$rule->getId()] > 0) {
+                    
+                    if ($cartRules[$rule->getId()] <> 0) {
                         $quoteAmount        = $quote->getStore()->convertPrice($cartRules[$rule->getId()]);
                         $discountAmount     = min(
                             $shippingAmount-$address->getShippingDiscountAmount(),

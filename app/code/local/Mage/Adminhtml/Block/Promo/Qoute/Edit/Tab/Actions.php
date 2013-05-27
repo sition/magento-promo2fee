@@ -100,8 +100,11 @@ class Mage_Adminhtml_Block_Promo_Quote_Edit_Tab_Actions
         $fieldset->addField('discount_amount', 'text', array(
             'name' => 'discount_amount',
             'required' => true,
-            'class' => 'validate-not-negative-number',
-            'label' => Mage::helper('salesrule')->__('Discount Amount'),
+        		// sition! mag wel negatief zijn!
+          //  'class' => 'validate-not-negative-number',
+
+        		
+        		'label' => Mage::helper('salesrule')->__('Discount Amount'),
         ));
         $model->setDiscountAmount($model->getDiscountAmount()*1);
 
