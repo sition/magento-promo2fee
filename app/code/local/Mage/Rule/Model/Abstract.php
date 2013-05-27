@@ -89,12 +89,16 @@ abstract class Mage_Rule_Model_Abstract extends Mage_Core_Model_Abstract
      */
     protected function _beforeSave()
     {
+        
+        // sition! negatief wel toestaan.
+    	
         // Check if discount amount not negative
-        if ($this->hasDiscountAmount()) {
-            if ((int)$this->getDiscountAmount() < 0) {
-                Mage::throwException(Mage::helper('rule')->__('Invalid discount amount.'));
-            }
-        }
+        
+//         if ($this->hasDiscountAmount()) {
+//             if ((int)$this->getDiscountAmount() < 0) {
+//                 Mage::throwException(Mage::helper('rule')->__('Invalid discount amount.'));
+//             }
+//         }
 
         // Serialize conditions
         if ($this->getConditions()) {
